@@ -7,7 +7,6 @@ import ci553.happyshop.storageAccess.DatabaseRW;
 import ci553.happyshop.orderManagement.OrderHub;
 import ci553.happyshop.utility.StorageLocation;
 import ci553.happyshop.utility.ProductListFormatter;
-import ci553.happyshop.catalogue.OrganisedTrolley;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -23,7 +22,7 @@ public class CustomerModel {
                                   //Benefits: Flexibility: Easily change the database implementation.
 
     private Product searchResult =null; // product found from search
-    private Trolley trolley = new OrganisedTrolley();
+    private Trolley trolley =  new Trolley(); // holds the products currently in the customer's trolley
 
     // Data passed to CustomerView for UI updates (including search, trolley and receipt page)
     private String searchResultImageName = "imageHolder.jpg";
