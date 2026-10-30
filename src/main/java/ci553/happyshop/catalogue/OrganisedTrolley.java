@@ -1,5 +1,7 @@
 package ci553.happyshop.catalogue;
 
+import java.util.Collections; // Added to enable sorting
+
 // Inherits all properties and methods from the original Trolley class
 public class OrganisedTrolley extends Trolley {
 
@@ -30,5 +32,9 @@ public class OrganisedTrolley extends Trolley {
             // so it can handle adding the new item to the end of the list normally
             super.addProduct(newProduct);
         }
+
+        // Step E: Sort the trolley every time a product is added or updated
+        // Because the Product class implements Comparable, Collections.sort automatically sorts them by ID
+        Collections.sort(getProducts());
     }
 }
