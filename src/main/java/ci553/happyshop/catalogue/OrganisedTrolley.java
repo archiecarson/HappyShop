@@ -28,9 +28,20 @@ public class OrganisedTrolley extends Trolley {
 
         // Step D: If the loop finishes and the product was not found then it's a new item
         if (!productFound) {
+            // BUG FIX: We create a new copy of the product instead of passing the original reference.
+            // This stops the application from doubling the quantity of the same object
+            Product productCopy = new Product(
+                    newProduct.getProductId(),
+                    newProduct.getProductDescription(),
+                    newProduct.getProductImageName(),
+                    newProduct.getUnitPrice(),
+                    newProduct.getOrderedQuantity(),
+                    newProduct.getStockQuantity()
+            );
+
             // uses super to call the original addProduct() method from the parent Trolley class
             // so it can handle adding the new item to the end of the list normally
-            super.addProduct(newProduct);
+            super.addProduct(productCopy);
         }
 
         // Step E: Sort the trolley every time a product is added or updated
